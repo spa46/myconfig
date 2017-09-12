@@ -1,0 +1,3 @@
+#rdate -s time.kriss.re.kr
+rdate -s time.bora.net
+#echo settime - `date`

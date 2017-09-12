@@ -1,0 +1,15 @@
+#! /bin/bash
+if [ $1 = '-h' ]
+then
+    echo "Usage: cvsmodules [-h] [-d cvsroot]     list CVS modules"
+    echo "    -h           display this help and exit"
+    echo "    -d CVS_root  Overrides \$CVSROOT or CVS/Root as the root of the CVS tree."
+    echo
+    echo "Provide a list of modules in the repository for the current directory or "
+    echo "a specified repository."
+elif [ $1 = '-d' ]
+then
+    cvs -d$2 history -c -a -l | awk '{sub(/[/].*/,"",$8); print $8;}' | sort -u
+else
+    cvs history -c -a -l | awk '{sub(/[/].*/,"",$8); print $8;}' | sort -u
+fi

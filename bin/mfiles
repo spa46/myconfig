@@ -1,0 +1,96 @@
+find . -type f > _ss
+
+#grep -v obj$ _ss \
+#		| grep -v _ss \
+#		| grep -v ^..files$ \
+#		| grep -v CVS \
+#		| grep -v files$ \
+#		| grep -v tags$ \
+#		| grep -v \\.exe$ \
+#		| grep -v \\.map$ \
+#		| grep -v \\.bmp$ \
+#		| grep -v \\.png$ \
+#		| grep -v \\.bak$ \
+#		| grep -v \\.a$ \
+#		| grep -v \\.o$ \
+#		| grep -v \\.z$ \
+#		| grep -v \\.tgz$ \
+#		| grep -v \\.gz$ \
+#		| grep -v \\.tar$ \
+#		| grep -v \\.bin$ \
+#		| grep -v \\.mod$ \
+#		| grep -v \\.cmd$ \
+#		| grep -v \\.dep$ \
+#		| grep -v \\.d$ \
+#		| grep -v \\.html$ \
+#		| grep -v \\.txt$ \
+#		| grep -v \\.tmpl$ \
+#		| grep -v \\.mo$ \
+#		| grep -v \\.la$ \
+#		| grep -v \\.so$ \
+#		| grep -v \\.Po$ \
+#		| grep -v \\.Plo$ \
+#		| grep -v \\.so\\. \
+#		| grep -v Image \
+#		| grep -v uImage \
+#		| grep -v zImage \
+#		| grep -v \\.ko$ \
+#		| grep -v \\.cvsignore$ \
+#		| grep -v \\.doc$ \
+#		| grep -v \\.svn \
+#		| grep -v \\.git \
+#		| grep -v \\.lo$ \
+#		| grep -v \\.o32$ \
+#		| grep -v \\.o\\. \
+#		| grep -v \\.tags \
+#		| grep -v \\.tmp$ \
+#		| grep -v modules.order$ \
+#		| grep -v \\.repo \
+#		| grep -v \\.py$ \
+#		| grep -v \\.js$ \
+#		| grep -v \\.class$ \
+#		| grep -v \\.wav$ \
+#		| grep -v \\.jar$ \
+#		| grep -v \\.mid$ \
+#		| grep -v \\.apk$ \
+#		| grep -v \\.dex$ \
+#	| sort > files
+
+grep -v obj$ _ss \
+		| grep -v ^..ss \
+		| grep -v ^ss \
+		| grep -v ^.._ss \
+		| grep -v _ss \
+		| grep -v ^files \
+		| grep -v ^..files \
+		| grep -v tags$ \
+		| grep -v \\.swp$ \
+		| grep -v \\.o$ \
+		| grep -v \\.P$ \
+		| grep -v \\.ko$ \
+		| grep -v \\.cvsignore$ \
+		| grep -v \\.doc$ \
+		| grep -v \\.svn \
+		| grep -v \\.git \
+		| grep -v \\.tags \
+		| grep -v \\.repo \
+		| grep -v \\.class$ \
+		| grep -v \\.jar$ \
+		| grep -v \\.apk$ \
+		| grep -v \\.dex$ \
+		| grep -v \\.cmd$ \
+		| grep -v \\.d$ \
+		| grep -v \\.mod$ \
+		| grep -v \\.swap$ \
+	| sort > files
+
+#sys_inc >> files
+rm -rf _ss
+
+#		| grep -v \\.a$ \
+
+
+if [ "$1" = "tags" ]; then
+	echo "making tags"
+	ctags -L files
+fi

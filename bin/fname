@@ -1,0 +1,17 @@
+#echo === $#
+#grep "(" $1 | grep ")$" | grep -v "^	" | grep -v "^  " | grep -v "^#" | grep -v "^/" | tee $2
+
+#echo === $1
+#grep "(" $1 | grep ")$" | grep -v "^	" | grep -v "^  " | grep -v "^#" | grep -v "^/"
+
+#echo === $1
+#grep "(" $1 | grep ")" | grep -v "^ " | grep -v "^	" | grep -v "^#" | grep -v "^/" | grep -v ";"
+
+#echo === $1
+#grep "(" $1 | grep -v "^ " | grep -v "^	" | grep -v "^#" | grep -v "^*" | grep -v "^.\*" | grep -v "^/" | grep -v ";"
+
+for file in $@
+do
+	echo === $file
+	grep "(" $file | grep -v "^ " | grep -v "^	" | grep -v "^#" | grep -v "^*" | grep -v "^.\*" | grep -v "^/" | grep -v ";"
+done

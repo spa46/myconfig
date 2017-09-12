@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# \= 2 ]
+then
+	dd if=/dev/zero of=$2 bs=$1 count=1
+else
+	echo "USAGE: mkfile size filename"
+fi

@@ -1,0 +1,4 @@
+#!/bin/bash
+# usage : cvs 와 연동 directory 를 argument 로 주어야 함
+cvs diff $@ | grep -A1 "^RCS" \
+	| sed -e s/RCS\ file:\ // -e s/.v.pool.dabio./.\\// -e s/,v//

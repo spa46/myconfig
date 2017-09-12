@@ -1,0 +1,12 @@
+mkdir .docs
+(cd .docs;
+ echo "javadoc" > s1;
+ find .. -name *.java >> s1;
+ ed s1 <<!
+%s/$/ \\\\/
+wq
+!
+ echo "2>&1 | tee ss" >> s1;
+ sh s1;
+)
+

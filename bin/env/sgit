@@ -1,0 +1,3 @@
+FILE=/home/dssonds/bin/sgit
+#cd $1; git log 
+echo $FILE

@@ -1,0 +1,9 @@
+find -name "*.bb" -o \
+     -name "*.bbclass" -o \
+     -name "*.inc" \
+        | sort > files
+
+if [ "$1" = "tags" ]; then
+	echo "making tags"
+	ctags -L files
+fi

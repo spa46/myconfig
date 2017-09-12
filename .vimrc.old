@@ -1,0 +1,137 @@
+"//////////////////////////////////////////////////////////////////////////////
+" Version 0.1
+" LG Electroncis SIC center IPT team
+" hyunho.jo@lge.com
+" please refer to the below link
+" http://collab.lge.com/main/pages/viewpage.action?pageId=384124489
+"
+"//////////////////////////////////////////////////////////////////////////////
+" vim configure start
+set mouse=a
+set colorcolumn=80
+" vim configure end
+"//////////////////////////////////////////////////////////////////////////////
+"//////////////////////////////////////////////////////////////////////////////
+" Indent configure start
+set autoindent
+set cindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" Indent configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" View configure start
+set visualbell
+set number
+set ruler
+set title
+set wrap
+set cursorline
+set linebreak
+set showmatch
+set background=dark
+" View configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" Search configure start
+set nowrapscan
+set hlsearch
+set ignorecase
+set incsearch
+" Search configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" Edit configure start
+set backspace=indent,eol,start
+set history=1000
+set fileencoding=utf-8
+set nobackup
+" Edit configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" VUNDLE configure start
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'The-NERD-Tree'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'lsdr/monokai'
+Plugin 'bling/vim-airline'
+Plugin 'SuperTab'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'taglist.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+" VUNDLE configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" vim-airline configure start
+set laststatus=2
+" vim-airline configure end
+"//////////////////////////////////////////////////////////////////////////////
+ 
+"//////////////////////////////////////////////////////////////////////////////
+" Color sheme configure start
+syntax on
+syntax enable
+set t_Co=256
+colorscheme molokai
+" Color sheme configure end
+"//////////////////////////////////////////////////////////////////////////////
+"cscope setting
+
+set csprg=/usr/bin/cscope
+set csto=0
+set cst
+set nocsverb
+
+if filereadable("./cscope.out")
+    cs add cscope.out
+else
+    cs add SOURCE_DIR/cscope.out
+endif
+set csverb
+
+"//////////////////////////////////////////////////////////////////////////////
+" Key mapping configure start
+nmap <F8> :Tlist<CR>
+nmap <F9> :NERDTreeToggle<CR>
+nmap <TAB><TAB> <C-w><C-W>
+nmap ,1 :b!1<CR>
+nmap ,2 :b!2<CR>
+nmap ,3 :b!3<CR>
+nmap ,4 :b!4<CR>
+nmap ,5 :b!5<CR>
+nmap ,6 :b!6<CR>
+nmap ,7 :b!7<CR>
+nmap ,8 :b!8<CR>
+nmap ,9 :b!9<CR>
+nmap ,0 :b!0<CR>
+nmap ,w :bw<CR>
+" Key mapping configure end
+"//////////////////////////////////////////////////////////////////////////////

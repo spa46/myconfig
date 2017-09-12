@@ -1,0 +1,1 @@
+find . \( -name *.[ch] -o -name *.mak -o -name Makefile -o -name product_config*kumkang \) | grep -v svn | xargs grep $1

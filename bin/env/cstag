@@ -1,0 +1,41 @@
+# cvs stacky tag check
+# Usage:
+#		-c : display current workplace tag and version
+#		
+#		cstag
+#		cstag -c
+#		cstag -c main.cpp
+#		cstag S_ -l				--> grep S_ on tags
+#		cstag S_ main.cpp		--> grep S_ on tags
+#		cstag T_ main.cpp		--> grep T_ on tags
+
+#cvs -q log -h $1 | egrep "^RCS|S_" | sed -e s/RCS.*:\ // -e s/,v//
+
+#if [ $# == 0 ]
+#then
+#	cvs -q log -h $2 | egrep "^RCS|S_" \
+#	| sed -e s/RCS.*:\ // -e s/,v// -e s/.home.cvs/./ -e s/Attic.//
+#else
+#	cvs -q log -h $2 | egrep "^RCS|$1" \
+#	| sed -e s/RCS.*:\ // -e s/,v// -e s/.home.cvs/./ -e s/Attic.//
+#fi
+
+if [ $# == 0 ]
+then
+	cvs -q log -h | egrep "^RCS|S_" \
+	| sed -e s/RCS.*:\ // -e s/,v// -e s/.home.cvs/./ -e s/Attic.//
+else
+	if [ $1 == '-c' ]
+	then
+		cvs -q status $2 > __ss0
+		cat __ss0 | grep Tag | cut -d":" -f2-3 | sed -e s/^\\t\\t// > __ss1
+		cat __ss0 | grep Repository \
+		| sed -e s/.*:\\t// -e s/.home.cvs/./ -e s/,v// -e s/Attic.// > ./__ss2
+		paste __ss1 __ss2 | grep -v Up-to-date
+		rm -f __ss0 __ss1 __ss2
+	else
+		cvs -q log -h $2 | egrep "^RCS|$1" \
+		| sed -e s/RCS.*:\ // -e s/,v// -e s/.home.cvs/./ -e s/Attic.//
+	fi
+fi
+

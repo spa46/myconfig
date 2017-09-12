@@ -1,0 +1,17 @@
+#!/bin/bash
+#cvs history -a -xMAR -z+0900 | sort -k2,3
+if [ $# == 0 ]
+then
+DATE=`date -d"0 day ago" +%F`
+else
+DAY=$[ $1-1 ]
+DATE=`date -d"$DAY day ago" +%F`
+fi
+cvs history -a -xMART -z+0900 -D$DATE | sort -k2,3 \
+| while read S1 S2 S3 S4 S5 S6 S7 S8 S9 SA
+do
+	echo $S1 $S2 $S3 $S5 $S6 $S8/$S7
+done
+#cvs history -xM -z+0900 $@
+#cvs history -a -z+0900 $@
+#cvs history -a -xM $@ -z+0900

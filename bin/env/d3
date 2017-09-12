@@ -1,0 +1,6 @@
+git checkout imx_r9.2 -- $1
+mv $1 $1.imx_r9.2
+git checkout cit_r9.2 -- $1
+mv $1 $1.cit_r9.2
+git checkout imx_r10 -- $1
+kdiff3 $1.imx_r9.2 $1.cit_r9.2 $1

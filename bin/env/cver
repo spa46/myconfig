@@ -1,0 +1,2 @@
+cvs status $@ | grep Repository \
+	| sed -e s/\ \ \ Repository\ // -e s/.v.pool.dabio./.\\// -e s/,v//

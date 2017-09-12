@@ -1,0 +1,3 @@
+cvs log -R $@ | \
+	sed -e s/,v//
+	

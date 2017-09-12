@@ -1,0 +1,23 @@
+case "$1" in
+	u)
+		#umount /user
+		#umount /user2
+		#umount /pub
+		#umount /src
+		#umount /pub2
+		#umount /src2
+		#umount /win
+		#umount /mnt/disk/2
+		;;
+	*)
+		#mount /dev/sdb1 /user
+		#mount /dev/sdc1 /user2
+		#mount -t cifs //1segpmp/public /pub -o user=dssonds
+		#mount -t cifs //1segpmp/source /src -o user=dssonds
+		#mount -t cifs //Cat-Server/public /pub2 -o user=dssonds
+		#mount -t cifs //Cat-Server/source /src2 -o user=dssonds
+		#mount -t cifs //dssonds/win$ /win -o user=dssonds
+		##mount /win/vdisk/vdisk-2 -o loop /vd2
+		#mount -t ext3 /dev/sdc3 /mnt/disk/2
+		;;
+esac

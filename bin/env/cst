@@ -1,0 +1,18 @@
+# cvs status
+
+#cvs status $@ | grep ^File | grep -v Up-to-date
+
+cvs -q status $@ > __ss0
+cat __ss0 | grep ^File | cut -d":" -f3 > __ss1
+cat __ss0 | grep Repository \
+| sed -e s/.*:\\t// -e s/.home.cvs/./ -e s/,v// -e s/Attic.// > ./__ss2
+#paste -d':' __ss1 __ss2 | grep -v Up-to-date
+paste __ss1 __ss2 | grep -v Up-to-date
+rm -f __ss0 __ss1 __ss2
+
+#cvs -q status $@ > __ss0
+#cat __ss0 | grep Tag | cut -d":" -f2-3 | sed -e s/^\\t\\t// > __ss1
+#cat __ss0 | grep Repository \
+#| sed -e s/.*:\\t// -e s/.home.cvs/./ -e s/,v// -e s/Attic.// > ./__ss2
+#paste __ss1 __ss2 | grep -v Up-to-date
+#rm -f __ss0 __ss1 __ss2

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# double line checker
+
+if [ $# \= 1 ]
+then
+	cat $1 | while read STR
+	do
+		#echo $BAK $STR
+
+		if [ "$BAK" \= "$STR" ]
+		then
+			echo $STR
+		fi
+
+		BAK=$STR
+	done
+else
+	echo "USAGE: dline file"
+fi

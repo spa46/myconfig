@@ -1,0 +1,2 @@
+find \. -name \*\.[csSh] | \
+egrep \-v 'arch/alpha|arch/blackfin|arch/h8300|arch/m32r|microblaze|parisc|score|arch/tile|xtensa|arch/arm|arch/cris|arch/ia64|arch/m68k|powerpc|arch/sh|arch/um|avr32|arch/frv|m68knommu|mn10300|s390|sparc|arch/x86' | cut \-c3\-

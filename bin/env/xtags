@@ -1,0 +1,1 @@
+find . -name *.[csSh] | cut -c3- | etags -

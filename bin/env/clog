@@ -1,0 +1,19 @@
+#!/bin/bash
+
+while read S1 S2 S3 S4 S5 S6
+do
+	#echo $S5 $S6
+	$S7 = ${S6/\ common/\ media}
+	cvs log -N -r$S5 ./${S6/\ common/\ media} \
+		| sed -e s/Working\ file:\ // \
+		| grep -v "^$" \
+		| grep -v "^RCS file:" \
+		| grep -v "^head:" \
+		| grep -v "^branch:" \
+		| grep -v "^locks:" \
+		| grep -v "^access list:" \
+		| grep -v "^keyword substitution:" \
+		| grep -v "^total revisions:" \
+		| grep -v "^description:"
+done
+

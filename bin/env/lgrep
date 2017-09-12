@@ -1,0 +1,16 @@
+# list grep : grep with file list
+
+if [ $# == 2 ]
+then
+	cat $2 | while read file
+	do
+		# case 1
+		#echo "== $file"
+		#grep $1 $file
+
+		# case 2
+		grep -Hi $1 $file
+	done
+else
+	echo "Usage: lgrep string file_list"
+fi

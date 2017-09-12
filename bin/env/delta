@@ -1,0 +1,12 @@
+cp $1 _ss1
+cp $1 _ss2
+
+sed -e \$d <_ss1 >_ss; mv _ss _ss1
+sed -e 1d <_ss2 >_ss; mv _ss _ss2
+paste _ss2 _ss1 > _ss
+sed -e s/\	/-/  <_ss >_ss1; mv _ss1 _ss
+sed -e s/^/r\;r=/ <_ss >_ss2; mv _ss2 _ss
+sed -e 1iobase=16 -e 1iibase=16 <_ss >_ss1; mv _ss1 _ss
+sed -e 1ibc\<\<\! <_ss >_ss1; mv _ss1 _ss
+sed -e \$ar -e \$a\! <_ss >_ss1; mv _ss1 _ss
+mv _ss $1.sh
