@@ -21,14 +21,14 @@ os.chdir(homedir)
 for i in range(len(clists)):
     src = confdir+clists[i]
     dst = clists[i]
-    print "src: " + src
-    print "  => dst: " + dst
+    print ("src: " + src)
+    print ("  => dst: " + dst)
     if not os.path.exists(src):
-        print ". . . . . . Skip. ( No source file )"
+        print (". . . . . . Skip. ( No source file )")
         continue
     if not os.path.exists(dst):
         os.symlink(src, dst)
-        print ". . . . . . Done."
+        print (". . . . . . Done.")
     else:
         question="File already exists, overwrite? (y/n)"
 
@@ -38,9 +38,9 @@ for i in range(len(clists)):
             if ans == "y":
                 os.remove(dst)
                 os.symlink(src, dst)
-                print ". . . . . . Overwrite Done."
+                print (". . . . . . Overwrite Done.")
                 break
             elif ans == "n":
-                print ". . . . . . Skip."
+                print (". . . . . . Skip.")
                 break
 
