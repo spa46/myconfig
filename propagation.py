@@ -18,6 +18,10 @@ clists=["bin", ".tmux.conf"]
 
 os.chdir(homedir)
 
+# Installation: spacevim 
+curl -sLf https://spacevim.org/install.sh | bash
+#######################
+
 for i in range(len(clists)):
     src = confdir+clists[i]
     dst = clists[i]
