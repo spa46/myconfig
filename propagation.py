@@ -11,8 +11,8 @@ confdir = 'myconfig/'
 
 ############## Customization  ##############
 
-clists=["bin", ".tmux.conf", ".vimrc.local", ".vimrc.old", ".vimrc.org", ".vimrc",
-        ".vimrc.before", ".vimrc.bundles"]
+# clists=["bin", ".tmux.conf", ".vimrc.local", ".vimrc.old", ".vimrc.org", ".vimrc",".vimrc.before", ".vimrc.bundles"]
+clists=["bin", ".tmux.conf"]
 
 ############################################
 
