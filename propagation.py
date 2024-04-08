@@ -37,7 +37,7 @@ for i in range(len(clists)):
         question="File already exists, overwrite? (y/n)"
 
         while True:
-            ans = raw_input(question)
+            ans = input(question)
 
             if ans == "y":
                 os.remove(dst)
